@@ -390,7 +390,7 @@ class Builder
     public function whereColumn(
         string $first,
         string $operator,
-        array|string $second = null,
+        array|string|null $second = null,
         string $conjunction = 'and',
         bool $negate = false,
     ): static {
@@ -412,7 +412,7 @@ class Builder
     public function orWhereColumn(
         string $first,
         string $operator,
-        string $second = null,
+        ?string $second = null,
         bool $negate = false,
     ): static {
         $this->whereColumn($first, $operator, $second, 'or', $negate);
@@ -422,7 +422,7 @@ class Builder
     public function whereColumnNot(
         string $first,
         string $operator,
-        string $second = null,
+        ?string $second = null,
         string $conjunction = 'and',
     ): static {
         $this->whereColumn($first, $operator, $second, $conjunction, true);
@@ -432,7 +432,7 @@ class Builder
     public function orWhereColumnNot(
         string $first,
         string $operator,
-        string $second = null,
+        ?string $second = null,
     ): static {
         $this->whereColumn($first, $operator, $second, 'or', true);
         return $this;
